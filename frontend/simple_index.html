@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Fusion Chat</title>
+</head>
+<body>
+    <h1>AI Fusion Chat - Тестова сторінка</h1>
+    <p>Якщо ви це бачите - фронтенд працює!</p>
+    
+    <h3>Тест підключення до бекенду:</h3>
+    <button onclick="testBackend()">Тест API</button>
+    <div id="result"></div>
+    
+    <script>
+        async function testBackend() {
+            try {
+                const response = await fetch('http://127.0.0.1:8000/');
+                const data = await response.json();
+                document.getElementById('result').innerHTML = `✅ Бекенд працює: ${data.message}`;
+            } catch (error) {
+                document.getElementById('result').innerHTML = `❌ Помилка: ${error}`;
+            }
+        }
+    </script>
+</body>
+</html>
